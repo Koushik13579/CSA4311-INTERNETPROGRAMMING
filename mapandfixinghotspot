@@ -1,0 +1,80 @@
+ImageMap.html
+<HTML>
+<HEAD>
+<TITLE>Image Map</TITLE> </HEAD>
+<BODY>
+<img src="india_map.jpg" usemap="#metroid" ismap="ismap" > <map name="metroid"
+id="metroid">
+<area href="TamilNadu.html" shape="circle" coords="208,606,50" title="TamilNadu"/>
+<area href="Karnataka.html" shape="rect" coords = "130,531,164,535" title ="Karnataka" />
+<area href="AndhraPradesh.html" shape="poly" coords =
+"227,490,238,511,230,536,198,535,202,503" title ="Andhra Pradesh" />
+<area href="Kerala.html" shape="rect" coords = "154,606,166,621" title ="Kerala" /> </map>
+</BODY>
+</HTML>
+TamilNadu.html
+<HTML><HEAD>
+<TITLE>About Tamil Nadu</TITLE>
+</HEAD>
+<BODY>
+<CENTER><H1>Tamil Nadu</H1></CENTER> <HR>
+<UL>
+<LI>Area : 1,30,058 Sq. Kms.</LI>
+<LI>Capital : Chennai</LI>
+<LI>Language : Tamil</LI>
+<LI>Population : 6,21,10,839</LI> </UL><hr>
+<a href='ImageMap.html'>India Map</a>
+</BODY>
+</HTML>
+Karnataka.html
+<HTML>
+<HEAD>
+<TITLE>About Karnataka</TITLE> </HEAD>
+<BODY>
+<CENTER><H1>Karnataka</H1></CENTER>
+<HR>
+5
+<UL>
+<LI>Area : 1,91,791 Sq. Kms</LI>
+<LI>Capital : Bangalore</LI>
+<LI>Language : Kannada</LI>
+<LI>Population : 5,27,33,958</LI>
+</UL>
+<hr>
+<a href='ImageMap.html'>India Map</a>
+</BODY>
+</HTML>
+AndhraPradesh.html
+<HTML>
+<HEAD>
+<TITLE>About Andhra Pradesh</TITLE> </HEAD>
+<BODY>
+<CENTER><H1>Andhra Pradesh</H1></CENTER> <HR>
+<UL>
+<LI>Area : 2,75,068 Sq. Kms</LI>
+<LI>Capital : Hyderabad</LI>
+<LI>Language : Telugu</LI>
+<LI>Population : 7,57,27,541</LI>
+</UL>
+<hr>
+<a href='ImageMap.html'>India Map</a>
+</BODY>
+</HTML>
+Kerala.html
+<HTML>
+<HEAD>
+<TITLE>About Kerala</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H1>Kerala</H1></CENTER>
+<HR>
+<UL>
+<LI>Area : 38,863 Sq. Kms.</LI>
+<LI>Capital : Thiruvananthapuram</LI>
+<LI>Language : Malayalam</LI>
+<LI>Population : 3,18,38,619</LI>
+</UL>
+<hr>
+<a href='ImageMap.html'>India Map</a>
+</BODY></HTML>

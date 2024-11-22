@@ -1,0 +1,221 @@
+Main.html:
+<html>
+<head>
+<title> ONLINE BOOK STORES</title>
+</head>
+<body bgcolor="pink">
+<marquee><h1 align=”center”><b><u><font color="white">
+ONLINE BOOK STORAGE</u></font>
+</b></h1></marquee>
+<H2 ALIGN="CENTER">
+<b><p><U><FONT COLOR="PURPLE">Welcome to online book storage.
+Press login if you are having id otherwise press registration.</U></FONT></p></b></H2>
+<H2> <FONT COLOR="WHITE"></FONT></H2>
+<H3 ALIGN="CENTER">
+<A HREF="reg.html"><BR><BR><FONT COLOR="black"><ITALIC>REGISTRATION
+FORM</FONT></ITALIC><BR><BR>
+<BR><BR><A HREF="profile.html"><FONT COLOR="black"><ITALIC>USER
+PROFILE</FONT></ITALIC><BR>
+<BR><BR><A HREF="login.html"><FONT COLOR="black"><ITALIC>USER
+LOGIN</FONT></ITALIC><BR>
+<BR><BR><A HREF="catalog.html"><FONT COLOR="black"><ITALIC>BOOKS
+CATALOG</FONT></ITALIC><BR>
+<BR><BR><A HREF="payment.html"><FONT
+COLOR="black"><ITALIC>PAYMENT</FONT></ITALIC><BR>
+<BR><BR><A HREF="Order.html"><FONT COLOR="black"><ITALIC>ORDER
+CONFIRMATION</H3></FONT></ITALIC><BR>
+</body>
+</html>
+Login.html:
+<html>
+<body bgcolor=”blue”><br><br><br>
+<script language=”javascript”>
+function validate()
+{
+11
+var flag=1;
+if(document.myform.id.value==""||document.myform.pwd.value=="")
+{
+alert("LoginId and Password must be filled")
+flag=0;
+}
+if(flag==1)
+{
+alert(“VALID INPUT”);
+window.open("catalog.html","right");
+}
+else
+{
+alert(“INVALID INPUT”);
+//document.myform.focus();
+}
+}
+</script>
+<form name=”myform”>
+<div align=”center”><pre>
+LOGIN ID:<input type=”text” name=”id”><br>
+PASSWORD:<input type=”password” name=”pwd”>
+<br><br>
+</pre>
+<input type=”button” value=”ok” onClick=”validate()”>
+<input type=”reset” value=”clear”>
+</div>
+</form>
+</body>
+</html>
+Reg.html:
+<html>
+<body bgcolor=”blue”><br><br>
+<script language=”javascript”>
+var str=document.myform.phno.value;
+var x;
+if(flag==1)
+{
+}
+else
+{
+}
+}
+alert("VALID INPUT");
+alert("INVALID INPUT");
+document.myform.focus();
+</script>
+<form name="myform">
+<div align="center"><pre>
+NAME :<input type="text" name="name"><br>
+ADDRESS :<input type="type" name="addr"><br>
+CONTACT NUMBER:<iput type="text" name="phno"><br>
+LOGINID :<input type="text" name="id"><br>
+PASSWORD :<input type="password" name="pwd"></pre><br><br>
+</div>
+12
+<br><br>
+<div align="center">
+<input type="submit" value="ok" onClick="validate()">&nbsp;&nbsp;&nbsp;
+<input type="reset" value="clear">
+</form></body></html>
+Catalog.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<div align="center">
+<pre>
+BOOK TITLE:<input type="text" name="title"><br>
+</pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<input type="submit" value="ok" name="button1">
+<input type="reset" value="clear" name="button2">
+</body>
+</html>
+Order.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<div align="center"><pre>
+LOGIN ID :<input type="text" name="id"><br>
+TITLE :<input type="text" name="title"><br>
+NO.OF BOOKS :<input type="text" name="no"><br>
+COST OF BOOK:<input type="text"name="cost"><br>
+DATE :<input tpe="text" name="date"><br></pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<input type="submit" value="ok" name="button1">
+<input type="reset" value="clear" name="button2">
+</body>
+</html>
+Payment.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<script language="javascript">
+function validate()
+{
+var flag=1;
+if(document.myform.id.value==""||
+document.myform.pwd.value==""||
+document.myform.amount.value==""||
+document.myform.num.value=="")
+{
+13
+flag=0;
+}
+var str=document.myform.amount.value;
+var x;
+for(var i=0;i<str.length;i++)
+{
+x=str.substr(i,1);
+if(!(x<=9))
+{
+flag=0;
+break;
+}
+}
+str=document.myform.num.value;
+for(var i=0;i<str.lenght;i++)
+{
+x=str.substr(i,1);
+if(!(x<=9))
+{
+flag=0;
+break;
+}
+}
+if(flag==1)
+{
+}
+else
+{
+}
+}
+alert("VALID INPUT");
+alert("INVALID INPUT");
+document.myform.focus();
+</script>
+<form name="myform">
+<div align="center"><pre>
+LOGIN ID :<input type="text" name="id"><br>
+PASSWORD :<input type="password" name="pwd"><br>
+AMOUNT :<input type="text" name="amount"><br>
+CREDITCARDNUMBER:<input type="PASSWORD" name="num+"><br></pre><br><br>
+</div>
+<br><br><div align="center">
+<input type="submit" value="ok" onClick="validate()">
+<input type="reset" value="clear">
+</form>
+</body>
+</html>
+Profile.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<script type="text/javascript">
+function validate()
+14
+{
+var flag=1;
+if(document.myform.id.value==""||
+document.myform.pwd.value=="")
+{
+flag=0;
+}
+if(flag==1)
+{
+}
+else
+{
+}
+}
+alert("VALID INPUT");
+alert("INVALID INPUT");
+document.myform.focus();
+</script>
+<form name="myform">
+<div align="center"><pre>
+LOGIN ID :<input type="text" name="id"><br>
+PASSWORD:<input type="password" name="pwd"></pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<input type="submit" value="ok" onClick="validate()">
+<input type="reset" value="clear" >
+</form>
+</body></html>

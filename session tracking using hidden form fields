@@ -1,0 +1,101 @@
+register.html:
+<html>
+<body bgcolor = "cyan">
+<center>
+<h1>WELCOME TO REGISTRATION PAGE</h1>
+<form action="./registerone" METHOD="post">
+Name: <input type="text" name = "name"><br><br>
+Password: <input type="password" name="password"><br><br>
+PROFESSION:
+<select name="profession">
+<option value="engineer">ENGINEER</option>
+<option value="teacher">TEACHER</option>
+<option value="businessman">BUSINESSMAN</option>
+</select><br><br>
+<input type="submit" value="REGISTER">
+</form>
+</center>
+</body>
+</html>
+web.xml
+<web-app>
+<welcome-file-list>
+<welcome-file>register.html</welcome-file>
+</welcome-file-list>
+<servlet>
+<servlet-name>RegistrationServletOne</servlet-name>
+<servlet-class>RegistrationServletOne</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>RegistrationServletOne</servlet-name>
+<url-pattern>/registerone</url-pattern>
+</servlet-mapping>
+<servlet>
+22
+<servlet-name>RegistrationServletTwo</servlet-name>
+<servlet-class>RegistrationServletTwo</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>RegistrationServletTwo</servlet-name>
+<url-pattern>/registertwo</url-pattern>
+</servlet-mapping>
+</web-app>
+RegistrationServletOne.java:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class RegistrationServletOne extends HttpServlet
+{
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException
+{
+String name = request.getParameter("name");
+String password = request.getParameter("password");
+String profession = request.getParameter("profession");
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+out.println("<html><body bgcolor = wheat>");
+out.println("<center>");
+out.println("<h1>COMPLETE THE REGISTRATION</h1>");
+out.println("<form action = ./registertwo method = post");
+out.println("<input type = hidden name = name value =" + name + ">");
+out.println("<input type = hidden name = password value =" + password + ">");
+out.println("<input type = hidden name = profession value =" + profession + ">");
+out.println("EMAIL ID:<input type =text name = email><br><br>");
+out.println("PHONE NO:<input type =text name = cell><br><br>");
+out.println("<input type =submit value=registernow>");
+out.println("</center>");
+out.println("</body></html>");
+out.close();
+}
+}
+RegistrationServletTwo.java
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class RegistrationServletTwo extends HttpServlet
+{
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException
+23
+{
+String name = request.getParameter("name");
+String password = request.getParameter("password");
+String profession = request.getParameter("profession");
+String email = request.getParameter("email");
+String cell = request.getParameter("cell");
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+out.println("<html><body bgcolor = wheat>");
+out.println("<center>");
+out.println("<h1>REGISTRATION SUCCESSFUL .........</h1>");
+out.println("</center>");
+out.println("</body></html>");
+out.close();
+}

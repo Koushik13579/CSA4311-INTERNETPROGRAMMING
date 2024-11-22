@@ -1,0 +1,302 @@
+Main.html:
+<html>
+<body bgcolor=”pink”>
+<br><br><br><br><br><br>
+<h1 align=”center”>>U>ONLINE BOOK STORAGE</u></h1><br><br><br>
+<h2 align=”center”><PRE>
+<b> Welcome to online book storage.
+Press LOGIN if you are having id
+Otherwise press REGISTRATION
+</b></PRE></h2>
+<br><br><pre>
+<div align=”center”><a href=”/tr/login.html”>LOGIN</a>
+href=”/tr/login.html”>REGISTRATION</a></div></pre>
+</body></html>
+Login.html:
+<html>
+<body bgcolor=”pink”><br><br><br>
+<form name="myform" method="post" action=/tr1/login.jsp">
+<div align="center"><pre>
+LOGIN ID : <input type="passwors" name="pwd"></pre><br><br>
+PASSWORD : <input type="password" name="pwd"></pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<inputtype="submit"value="ok" onClick="validate()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+type="reset"
+value="clear">
+</form>
+</body>
+</html>
+36
+Reg.html:
+<html>
+<body bgcolor="pink"><br><br>
+<form name="myform" method="post" action="/tr1/reg.jsp">
+<div align="center"><pre>
+NAME :<input type="text" name="name"><br>
+ADDRESS :<input type="text" name="addr"><br>
+CONTACT NUMBER : <input type="text" name="phno"><br>
+LOGIN ID : <input type="text" name="id"><br>
+PASSWORD : <input type="password" name="pwd"></pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<inputtype="submit"value="ok"
+onClick="validate()">()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"
+value="clear">
+</form>
+</body>
+</html>
+Profile.html:
+<html>
+<body bgcolor="pink"><br><br>
+<form name="myform" method="post" action="/tr1/profile.jsp">
+<div align="center"><pre>
+LOGIN ID : <input type="text" name="id"><br>
+</pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<inputtype="submit"value="ok"
+onClick="validate()">()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset"
+value="clear">
+</form>
+</body>
+</html>
+Catalog.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<form method="post" action="/tr1/catalog.jsp">
+<div align="center"><pre>
+BOOK TITLE : <input type="text" name="title"><br>
+</pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<inputtype="submit"value="ok"
+name=”button1”>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<inputtype="reset"value="clear"
+name=”button2”>
+</form>
+</body>
+</html>
+37
+Order.html:
+<html>
+<body bgcolor="pink"><br><br><br>
+<form method="post" action="/tr1/order.jsp">
+<div align="center"><pre>
+LOGIN ID :<input type="text" name="id"><br>
+PASSWORD : <input type="password" name="pwd"><br>
+TITLE :<input type="text" name="title"><br>
+NO. OF BOOKS : <input type="text" name="no"><br>
+DATE : <input type="text" name="date"><br>
+CREDIT CARD NUMBER : <input type="password" name="cno"><br></pre><br><br>
+</div>
+<br><br>
+<div align="center">
+<input type="submit" value="ok" name=”button1”>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+type="reset"
+value="clear" name=”button2”>
+</form>
+</body>
+</html>
+Login.jsp:
+%@page import=”java.sql.*”%
+%@page import=”java.io.*”%
+<%
+out.println(“<html><body bgcolor=\”pink\”>”);
+String id=request.getParameter(“id”);
+String pwd=request.getParameter(“pwd”);
+Driver d=new oracle.jdbc.driver.OracleDriver();
+DriverManager.registerDriver(d);
+Connection
+con=DriverManager.getConnection(“jdbc:oracle:thin:@localhost:1521:orcl”,”scott”,”tiger”);
+Statement stmt=con.createStatement();
+String sqlstmt=”select id,password from login where id=”+id+” and password=”+pwd+””;
+ResultSet rs=stmt.executeQuery(sqlstmt);
+int flag=0;
+while(rs.next())
+{
+flag=1;
+}
+if(flag==0)
+{
+out.println(“SORRY INVALID ID TRY AGAIN ID<br><br>”);
+out.println(“ <a href=\”/tr1/login.html\”>press LOGIN to RETRY</a>”);
+}
+else
+{
+out.println(“VALID LOGIN ID<br><br>”);
+out.println(“<h3><ul>”);
+out.println(“<li><ahref=\”profile.html\”><fontcolor=\”black\”>USER
+PROFILE</font></a></li><br><br>”);
+38
+out.println(“<li><ahref=\”catalog.html\”><fontcolor=\”black\”>BOOKS
+CATALOG</font></a></li><br><br>”);
+out.println(“<li><ahref=\”order.html\”><fontcolor=\”black\”>ORDER
+CONFIRMATION</font></a></li><br><br>”);
+out.println(“</ul>”);
+}
+out.println(“<body></html>”);
+%>
+Reg.jsp:
+%@page import=”java.sql.*”%
+%@page import=”java.io.*”%
+<%
+out.println(“<html><body bgcolor=\”pink\”>”);
+String name=request.getParameter(“name”);
+String addr=request.getParameter(“addr”);
+String phno=request.getParameter(“phno”);
+String id=request.getParameter(“id”);
+String pwd=request.getParameter(“pwd”);
+int no=Integer.parseInt(phno);
+Driver d=new oracle.jdbc.driver.OracleDriver();
+DriverManager.registerDriver(d);
+Connection con=
+DriverManager.getConnection (“jdbc:oracle:thin:@localhost:1521:orcl”,”scott”,”tiger”);
+Statement stmt=con.createStatement();
+String sqlstmt=”select id from login”;
+ResultSet rs=stmt.executeQuery(sqlstmt);
+int flag=0;
+while(rs.next())
+{
+if(id.equals(rs.getString(1)))
+{
+flag=1;
+}
+}
+if(flag==1)
+{
+out.println(“SORRY LOGIN ID ALREADY EXISTS TRY AGAIN WITH NEW ID <br><br>”);
+out.println(“<a href=\”/tr1/reg.html\”>press REGISTER to RETRY</a>”);
+}
+else
+{
+Statement stmt1=con.createStatement ();
+stmt1.executeUpdate (“insert into login values (“+name+”,”+addr+”,”+no+”,”+id+”,”+pwd+”)”);
+out.println (“YOU DETAILS ARE ENTERED <br><br>”);
+out.println (“<a href =\”/tr1/login.html\”>press LOGIN to login</a>”);
+}
+out.println (“</body></html>”);
+%>
+Profile.jsp:
+<%@page import=”java.sql.*”%>
+39
+<%@page import=”java.io.*”%>
+<%
+out.println (“<html><body bgcolor=\”pink\”>”);
+String id=request.getParameter(“id”);
+Driver d=new oracle.jdbc.driver.OracleDriver();
+DriverManager.regiserDriver(d);
+Connection con=
+DriverManager.getConnection (“jdbc:oracle:thin:@localhost:1521:orcl”,”scott”,”tiger”);
+Statement stmt=con.createStatement ();
+String sqlstmt=”select * from login where id=”+id+””;
+ResultSet rs=stmt.executeQuery (sqlstmt);
+int flag=0;
+while(rs.next())
+{
+out.println (“<div align=\”center\”>”);
+out.println (“NAME :”+rs.getString(1)+”<br>”);
+out.println (“ADDRESS :”+rs.getString(2)+”<br>”);
+out.println (“PHONE NO :”+rs.getString(3)+”<br>”);
+out.println (“</div>”);
+flag=1;
+}
+if(flag==0)
+{
+out.println(“SORRY INVALID ID TRY AGAIN ID <br><br>”);
+out.println(“<a href=\”/tr1/profile.html\”>press HERE to RETRY </a>”);
+}
+out.println (“</body></html>”);
+%>
+Catalog.jsp:
+<%@page import=”java.sql.*”%>
+<%@page import=”java.io.*”%>
+<%
+out.println (“<html><body bgcolor=\”pink\”>”);
+String title=request.getParameter (“title”);
+Driver d=new oracle.jdbc.driver.OracleDriver ();
+DriverManager.regiserDriver (d);
+Connection con=
+DriverManager.getConnection (“jdbc:oracle:thin:@localhost:1521:orcl”,”scott”,”tiger”);
+Statement stmt=con.createStatement ();
+String sqlstmt=”select * from book where title=”+title+””;
+ResultSet rs=stmt.executeQuery (sqlstmt);
+int flag=0;
+while(rs.next())
+{
+out.println (“<div align=\”center\”>”);
+out.println (“TITLE :”+rs.getString(1)+”<br>”);
+out.println (“AUTHOR :”+rs.getString(2)+”<br>”);
+out.println (“VERSION:”+rs.getString(3)+”<br>”);
+out.println (“PUBLISHER :” +rs.getString(4)+”<br>”);
+out.println (“COST :” +rs.getString(5)+”<br>”);
+out.println (“</div>”);
+flag=1;
+40
+}
+if(flag==0)
+{
+out.println(“SORRY INVALID ID TRY AGAIN ID <br><br>”);
+out.println(“<a href=\”/tr1/catalog.html\”>press HERE to RETRY </a>”);
+}
+out.println (“</body></html>”);
+%>
+Order.jsp:
+<%@page import=”java.sql.*”%>
+<%@page import=”java.io.*”%>
+<%
+out.println (“<html><body bgcolor=\”pink\”>”);
+String id=request.getParameter (“id”);
+String pwd=request.getParameter (“pwd”);
+String title=request.getParameter (“title”);
+String count1=request.getParameter (“no”);
+String date=request.getParameter (“date”);
+String cno=request.getParameter (“cno”);
+int count=Integer.parseInt(count1);
+Driver d=new oracle.jdbc.driver.OracleDriver ();
+DriverManager.regiserDriver (d);
+Connection con=
+DriverManager.getConnection (“jdbc:oracle:thin:@localhost:1521:orcl”,”scott”,”tiger”);
+Statement stmt=con.createStatement ();
+String sqlstmt=”select id, password from login”;
+ResultSet rs=stmt.executeQuery (sqlstmt);
+int flag=0,amount,x;
+while(rs.next())
+{
+if(id.equals(rs.getString(1))&& pwd.equals(rs.getString(2)))
+{
+flag=1;
+}
+}
+if(flag==0)
+{
+out.println(“SORRY INVALID ID TRY AGAIN ID <br><br>”);
+out.println(“<a href=\”/tr1/order.html\”>press HERE to RETRY </a>”);
+}
+else
+{
+Statement stmt2=con.createStatement();
+String s=”select cost from book where title=”+title+””;
+ResultSet rs1=stmt2.executeQuery(s);
+int flag1=0;
+while(rs1.next())
+{
+flag1=1;
+x=Integer.parseInt(rs1.getString(1));
+amount=count*x;
+41
+out.println(“AMOUNT :”+amount+”<br><br><br><br>”);
+Statement stmt1=con.createStatement ();
+stmt1.executeUpdate (“insert into details (“+id+”,”+title+”,”+amount+”,”+date+”,”+cno+”)”);
+out.println (“YOU ORDER HAS TAKEN<br>”);
+}
+if(flag1==0)
+{
+out.println(“SORRY INVALID BOOK TRY AGAIN <br><br>”);
+out.println(“<a href=\”/tr1/order.html\”>press HERE to RETRY </a>”);
+}
+}
+out.println (“</body></html>”);%>

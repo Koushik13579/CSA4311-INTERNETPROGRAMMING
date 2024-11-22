@@ -1,0 +1,65 @@
+index.html:
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE>Searching for XML Elements </TITLE>
+<SCRIPT>
+function readXMLData()
+{
+var xmlDocumentObject, id , name , addr, phone, email;
+xmlDocumentObject=new XMLHttpRequest();
+xmlDocumentObject.open("GET","userlist.xml",false);
+xmlDocumentObject.send();
+xmlDocumentObject=xmlDocumentObject.responseXML;
+id = xmlDocumentObject.getElementsByTagName("userid");
+name = xmlDocumentObject.getElementsByTagName("username");
+address = xmlDocumentObject.getElementsByTagName("address");
+phone = xmlDocumentObject.getElementsByTagName("phone");
+email = xmlDocumentObject.getElementsByTagName("email");
+for (i = 0; i < id.length; i++)
+{
+output=id[i].firstChild.nodeValue;
+if (output == document.getElementById("myText").value)
+{displayDIV.innerHTML = id[i].firstChild.nodeValue + "<br> " + name[i].firstChild.nodeValue
++"<br> " +address[i].firstChild.nodeValue + "<br> " +
+phone[i].firstChild.nodeValue+"<br>"+email[i].firstChild.nodeValue;
+} } }
+</SCRIPT>
+</HEAD>
+<BODY>
+<H1>Search User</H1>
+<input type="text" id="myText" value="">
+<input type="BUTTON" VALUE="Get User Details" ONCLICK="readXMLData()">
+<P>
+<DIV ID="displayDIV"> </DIV>
+</BODY>
+</HTML>
+44
+userlist.xml:
+<userlist>
+<userid>usr01</userid>
+<username>indhu</username>
+<address>trichy</address>
+<phone>9000000078</phone>
+<email>indhu@gmail.com</email>
+<userid>usr02</userid>
+<username>Pooja</username>
+<address>chennai</address>
+<phone>9111111111</phone>
+<email>pooja@gmail.com</email>
+<userid>usr03</userid>
+<username>sadhana</username>
+<address>telugana</address>
+<phone>9222222222</phone>
+<email>sadhana@gmail.com</email>
+<userid>usr04</userid>
+<username>sameera</username>
+<address>bangalore</address>
+<phone>9555555555</phone>
+<email>sameera@gmail.com</email>
+<userid>usr05</userid>
+<username>naveena</username>
+<address>Perambalur</address>
+<phone>9666666666</phone>
+<email>naveena@gmail.com</email>
+</userlist>
