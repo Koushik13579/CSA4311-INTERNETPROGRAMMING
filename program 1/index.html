@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            position: relative;
+        }
+        img {
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        /* Dot for Delhi (slightly up and further left) */
+        #dot-delhi {
+            top: 180px;  /* Moved slightly up from 200px */
+            left: 340px; /* Moved further left from 370px */
+        }
+        /* Dot for Chennai (moved to the right) */
+        #dot-chennai {
+            top: 520px;  /* Moved slightly up from 540px */
+            left: 440px; /* Moved to the right from 380px */
+        }
+    </style>
+    <title>Image Map with Dots</title>
+</head>
+<body>
+    <p>
+        <map name="imap">
+            <area href="delhi.html" shape="circle" coords="340,180,16">
+            <area href="chennai.html" shape="circle" coords="440,520,14">
+        </map>
+        <img border="10" src="image.jpg" usemap="#imap" width="1000" height="620" alt="Map">
+        <!-- Dots -->
+        <div class="dot" id="dot-delhi"></div>
+        <div class="dot" id="dot-chennai"></div>
+    </p>
+</body>
+</html>
