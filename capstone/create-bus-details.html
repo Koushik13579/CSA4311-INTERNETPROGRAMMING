@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bus Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6fff8;
+            margin: 0;
+        }
+
+        header {
+            background-color: #6b9080;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f6fff8;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #6b9080;
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #a4c3b2;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #6b9080;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a6b5b;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #a4c3b2;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6b9080;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Create Bus Details</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="manage-student-pass.html">Manage Student & Route Pass</a></li>
+                <li><a href="approve-pass.html">Approve Bus Pass</a></li>
+                <li><a href="create-bus-details.html">Create Bus Details</a></li>
+                <li><a href="create-route-info.html">Create Route Information</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="content">
+        <h2>Create Bus Details</h2>
+        <form id="busForm">
+            <input type="text" id="busNumber" name="busNumber" placeholder="Bus Number" required>
+            <input type="number" id="busCapacity" name="busCapacity" placeholder="Bus Capacity" required>
+            <button type="submit">Save Bus Details</button>
+        </form>
+        
+        <h3>Saved Bus Details</h3>
+        <table id="busTable">
+            <thead>
+                <tr>
+                    <th>Bus Number</th>
+                    <th>Bus Capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Handle form submission
+        document.getElementById('busForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const busNumber = document.getElementById('busNumber').value;
+            const busCapacity = document.getElementById('busCapacity').value;
+
+            // Insert new row into table
+            const tableBody = document.querySelector('#busTable tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${busNumber}</td>
+                <td>${busCapacity}</td>
+            `;
+            tableBody.appendChild(newRow);
+
+            // Clear the form
+            document.getElementById('busForm').reset();
+        });
+    </script>
+</body>
+</html>

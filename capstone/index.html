@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Bus Pass System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-image: url('solarisbus.jpeg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+    }
+
+    h1 {
+      color: #ff4e02;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .home-content {
+      text-align: center;
+      margin-top: 150px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+
+    .home-content h1 {
+      font-size: 48px;
+    }
+
+    .home-content p {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 20px;
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background-color: #c70039;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">E-Bus Pass</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="admin-login.html">Admin</a></li>
+      <li><a href="userlogin.html">User</a></li>
+      <li><a href="conductor.html">Conductor</a></li>
+    </ul>
+  </div>
+
+  <div class="home-content">
+    <h1>Welcome to the E-Bus Pass System</h1>
+    <p>Easily manage and access your bus passes through a seamless digital platform. Register as a user, manage trips as a conductor, or handle system administration — all in one place.</p>
+    <a href="userlogin.html" class="cta-button">Get Started</a>
+  </div>
+</body>
+</html>

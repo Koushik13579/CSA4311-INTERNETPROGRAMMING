@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Money - E-Bus Pass</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7fa;
+      background-image: linear-gradient(to bottom right, #009688, #004d40);
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 77, 64, 0.9);
+      color: white;
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .content {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #004d40;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .button {
+      padding: 12px 30px;
+      font-size: 18px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #004d40;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 20px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .balance-info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">E-Bus Pass</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Add Money to eWallet</h2>
+
+    <!-- Add Money Form -->
+    <form id="addMoneyForm">
+      <label for="amount">Enter Amount to Add:</label>
+      <input type="number" id="amount" placeholder="Enter amount (e.g., 100)" min="1" required>
+      <button type="submit" class="button">Add Money</button>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      Money added successfully! 💰
+    </div>
+
+    <!-- Balance Information -->
+    <div class="balance-info" id="balanceInfo">
+      <p>Current Balance: ₹<span id="balance">0</span></p>
+    </div>
+  </div>
+
+  <script>
+    // Initial balance
+    let currentBalance = 0;
+
+    // Form submission handler
+    document.getElementById('addMoneyForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting
+
+      // Get the input value and convert it to a number
+      let amount = parseInt(document.getElementById('amount').value);
+
+      // Ensure a valid amount is entered
+      if (!isNaN(amount) && amount > 0) {
+        // Update balance
+        currentBalance += amount;
+
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
+
+        // Update balance info
+        document.getElementById('balance').innerText = currentBalance;
+
+        // Clear the input field
+        document.getElementById('amount').value = '';
+      } else {
+        alert("Please enter a valid amount.");
+      }
+    });
+  </script>
+
+</body>
+</html>

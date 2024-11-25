@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf4f4;
+    margin: 0;
+}
+
+header {
+    background-color: #6b9080;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #a4c3b2;
+    padding: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f6fff8;
+}
+
+section#content {
+    padding: 20px;
+    background-color: #f6fff8;
+    min-height: 400px;
+}
+
+h2 {
+    color: #6b9080;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" id="manageStudents">Manage Student & Route Pass</a></li>
+            <li><a href="#" id="manageConductor">Manage Conductor Login</a></li>
+            <li><a href="#" id="approvePass">Approve Bus Pass</a></li>
+            <li><a href="#" id="generateQR">Generate QR Code</a></li>
+            <li><a href="#" id="createBusDetails">Create Bus Details</a></li>
+            <li><a href="#" id="createRouteInfo">Create Route Information</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+        <h2>Welcome, Admin</h2>
+        <p>Select an action from the menu.</p>
+    </section>
+    <script>
+        document.getElementById('manageStudents').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Manage Student & Route Pass</h2><p>Here, admin can manage the students and route pass details.</p>';
+});
+
+document.getElementById('manageConductor').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Manage Conductor Login</h2><p>Here, admin can manage conductor login credentials.</p>';
+});
+
+document.getElementById('approvePass').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Approve Bus Pass</h2><p>Here, admin can approve pending bus passes.</p>';
+});
+
+document.getElementById('generateQR').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Generate QR Code</h2><p>Here, admin can generate QR codes for bus passes.</p>';
+});
+
+document.getElementById('createBusDetails').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Create Bus Details</h2><p>Here, admin can create new bus details.</p>';
+});
+
+document.getElementById('createRouteInfo').addEventListener('click', function() {
+    document.getElementById('content').innerHTML = '<h2>Create Route Information</h2><p>Here, admin can create and manage bus routes.</p>';
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Bus Pass - User Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e0f7fa;
+      background-image: linear-gradient(to bottom right, #009688, #004d40);
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 77, 64, 0.9);
+      color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #00695c;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #004d40;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #004d40;
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 24px;
+      color: #00796b;
+    }
+
+    .button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #004d40;
+      transform: scale(1.05);
+    }
+
+    /* Button Icons */
+    .button:before {
+      content: '➤ ';
+    }
+
+    /* Section Spacing */
+    .section + .section {
+      margin-top: 40px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar, .nav-links a {
+        font-size: 16px;
+      }
+
+      .content {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .button {
+        padding: 12px 25px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">E-Bus Pass</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>User Dashboard</h2>
+
+    <!-- Add Money (eWallet) -->
+    <div class="section">
+      <h3>Add Money – eWallet</h3>
+      <a href="addmoney.html" class="button">ADD MONEY</a>
+    </div>
+
+    <!-- Buy Bus eTicket -->
+    <div class="section">
+      <h3>Buy Bus eTicket</h3>
+      <a href="eticket.html" class="button">Buy eTicket</a>
+    </div>
+
+    <!-- Apply New Bus Pass -->
+    <div class="section">
+      <h3>Apply for New Bus Pass</h3>
+      <a href="applypass.html" class="button">Apply New Pass or Renew Pass</a>
+    </div>
+
+    <!-- Get QR Code for Bus Pass -->
+    <div class="section">
+      <h3>Get QR Code for Bus Pass</h3>
+      <a href="qruser.html" class="button">Generate QR Code</a>
+    </div>
+
+    <!-- Calculate Expected Time to Reach -->
+    <div class="section">
+      <h3>Calculate Expected Time to Reach</h3>
+      <a href="time.html" class="button">Calculate Time</a>
+    </div>
+  </div>
+
+</body>
+</html>

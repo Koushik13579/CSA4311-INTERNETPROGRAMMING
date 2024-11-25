@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Bus Pass ID</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf4f4;
+            margin: 0;
+        }
+
+        header {
+            background-color: #6b9080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #a4c3b2;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            padding: 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f6fff8;
+        }
+
+        section#content {
+            padding: 20px;
+            background-color: #f6fff8;
+            min-height: 400px;
+        }
+
+        h2 {
+            color: #6b9080;
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #a4c3b2;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #6b9080;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a6b5b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verify Bus Pass ID</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="conductor.html">Home</a></li>
+            <li><a href="scan-qr.html">Scan QR</a></li>
+            <li><a href="conductor-pass.html">Verify Bus Pass ID</a></li>
+            <li><a href="verify-ticket.html">Verify Bus Ticket</a></li>
+            <li><a href="update-location.html">Update Bus Location</a></li>
+        </ul>
+    </nav>
+    <section id="content">
+        <h2>Verify Bus Pass ID</h2>
+        <form>
+            <input type="text" id="passId" name="passId" placeholder="Enter Bus Pass ID" required>
+            <button type="submit">Verify Pass ID</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply / Renew Bus Pass - E-Bus Pass</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      background-image: linear-gradient(to bottom right, #009688, #00796b);
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 150, 136, 0.9);
+      color: white;
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .content {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #00796b;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .button {
+      padding: 12px 30px;
+      font-size: 18px;
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #00796b;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 20px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">E-Bus Pass</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Apply or Renew Bus Pass</h2>
+
+    <!-- Apply/Renew Bus Pass Form -->
+    <form id="passForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+
+      <label for="passType">Select Pass Type:</label>
+      <select id="passType" required>
+        <option value="" disabled selected>Select pass type</option>
+        <option value="new">New Bus Pass</option>
+        <option value="renew">Renewal of Bus Pass</option>
+      </select>
+
+      <label for="route">Select Route:</label>
+      <select id="route" required>
+        <option value="" disabled selected>Select a route</option>
+        <option value="A">Route A</option>
+        <option value="B">Route B</option>
+        <option value="C">Route C</option>
+      </select>
+
+      <label for="validity">Validity (in months):</label>
+      <input type="number" id="validity" placeholder="Enter validity period in months" min="1" required>
+
+      <button type="submit" class="button">Submit Application</button>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      Your bus pass has been successfully applied/renewed! 🚌
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('passForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Show success message upon form submission
+      document.getElementById('successMessage').style.display = 'block';
+
+      // Clear the form fields
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('dob').value = '';
+      document.getElementById('passType').value = '';
+      document.getElementById('route').value = '';
+      document.getElementById('validity').value = '';
+    });
+  </script>
+
+</body>
+</html>

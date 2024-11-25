@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Bus Pass</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6fff8;
+            margin: 0;
+        }
+
+        header {
+            background-color: #6b9080;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f6fff8;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #6b9080;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #a4c3b2;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6b9080;
+            color: white;
+        }
+
+        button {
+            background-color: #6b9080;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #4a6b5b;
+        }
+
+        .approve {
+            background-color: #6b9080;
+        }
+
+        .reject {
+            background-color: #d9534f;
+        }
+
+        .approve:hover {
+            background-color: #4a6b5b;
+        }
+
+        .reject:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Approve Bus Pass</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="manage-student-pass.html">Manage Student & Route Pass</a></li>
+                <li><a href="approve-pass.html">Approve Bus Pass</a></li>
+                <li><a href="create-bus-details.html">Create Bus Details</a></li>
+                <li><a href="create-route-info.html">Create Route Information</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="content">
+        <h2>Pending Bus Pass Applications</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Route</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="passTable">
+                <tr>
+                    <td>John Doe</td>
+                    <td>Route 1</td>
+                    <td>
+                        <button class="approve" onclick="approvePass(this)">Approve</button>
+                        <button class="reject" onclick="rejectPass(this)">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Route 5</td>
+                    <td>
+                        <button class="approve" onclick="approvePass(this)">Approve</button>
+                        <button class="reject" onclick="rejectPass(this)">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        function approvePass(button) {
+            const row = button.closest('tr');
+            row.innerHTML = `<td colspan="3" style="color: green; text-align: center;">Pass Approved</td>`;
+        }
+
+        function rejectPass(button) {
+            const row = button.closest('tr');
+            row.innerHTML = `<td colspan="3" style="color: red; text-align: center;">Pass Rejected</td>`;
+        }
+    </script>
+</body>
+</html>
